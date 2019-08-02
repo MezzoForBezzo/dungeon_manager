@@ -1,0 +1,11 @@
+<div class="col-md-4">
+  <div class="card">
+    <img class="card-imd-top" src="<%= campaign.image_url %>" style="max-height: 300px;  min-height: 300px; object-fit: contain;">
+    <div class="card-body">
+      <h5 class="card-title"><%= campaign.name %></h5>
+      <p class="card-text"><%= campaign.description %></p>
+      <p class="card-text"><small class="text-muted">DM: <%= campaign.dungeon_master %></small></p>
+      <a href="<%= campaign_path(campaign) %>" class="btn btn-outline-secondary" >Check it out!</a>
+    </div>
+  </div>
+</div>

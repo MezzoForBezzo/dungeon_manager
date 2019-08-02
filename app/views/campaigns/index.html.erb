@@ -1,0 +1,14 @@
+<div class="container-fluid padding">
+  <div class="row">
+    <div class="card-deck">
+      <% @campaigns.each do |campaign| %>
+        <%= render partial: 'campaigns', locals: {campaign: campaign} %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <a href="<%= new_campaign_path %>"><button type="button" style="width: 100%;" class="btn btn-outline-secondary btn-lg">New Campaign</button></a>
+    </div>
+  </div>
+</div>

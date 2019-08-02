@@ -1,0 +1,55 @@
+<%= form_with model: @campaign, :html => {:class => "form-horizontal center"}, local: true  do |f| %>
+
+  <% if @campaign.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@campaign.errors.count, "error") %> prohibited
+        this campaign from being saved:
+      </h2>
+      <ul>
+        <% @campaign.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :dungeon_master, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :dungeon_master, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :players, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :players, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image_url, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :image_url, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row" style="padding:15px;">
+    <%= f.submit "Submit", class: "btn btn-default btn-primary"%>
+    <a href="<%= campaigns_path %>" class="btn btn-primary" style="margin-left:5px;">Back</a>
+  </div>
+ <% end %>

@@ -1,0 +1,3 @@
+class CampaignSession < ApplicationRecord
+  
+end

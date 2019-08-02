@@ -1,0 +1,15 @@
+<div class="card" style="max-width:75rem; max-height:75rem; margin:15px;">
+  <a href=""><img class="card-img-top" src=<%= @campaign.image_url %> alt="..."><a>
+  <div class="card-body">
+    <h2 class="card-title"><%= @campaign.name %></h2>
+    <h4 class="card-subtitle mb-2 text-muted">DM: <%= @campaign.dungeon_master %> Players: <%= @campaign.players %></h4>
+    <p class="card-text"><%= @campaign.description %></p>
+    <div class="row" style="padding:15px;">
+      <a href="<%= edit_campaign_path(@campaign)%>" class="btn btn-primary" style="margin:5px;">Edit</a>
+      <a href="<%= campaigns_path %>" class="btn btn-primary" style="margin:5px;">Back</a>
+    </div>
+    <%= link_to 'Destroy', campaign_path(@campaign),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>
