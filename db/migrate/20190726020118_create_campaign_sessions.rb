@@ -3,6 +3,7 @@ class CreateCampaignSessions < ActiveRecord::Migration[6.0]
     create_table :campaign_sessions do |t|
       t.string      :name
       t.text        :description
+      t.references  :campaign
 
       t.timestamps
     end

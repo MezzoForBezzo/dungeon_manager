@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 2019_07_26_020118) do
   create_table "campaign_sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.bigint "campaign_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["campaign_id"], name: "index_campaign_sessions_on_campaign_id"
   end
 
   create_table "campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

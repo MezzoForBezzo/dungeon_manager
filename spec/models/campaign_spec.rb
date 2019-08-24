@@ -14,7 +14,7 @@ RSpec.describe Campaign, type: :model do
     context 'with valid params' do
       let(:campaign) { Campaign.new(campaign_params) }
 
-      it 'is a success' do
+      it 'is valid' do
         expect(campaign).to be_valid
       end
     end
@@ -22,7 +22,31 @@ RSpec.describe Campaign, type: :model do
     context 'with no params' do
       let(:campaign) { Campaign.new }
 
-      it 'is fails' do
+      it 'is not valid' do
+        expect(campaign).to_not be_valid
+      end
+    end
+
+    context 'making a campaign with the same name' do
+      let(:dup_campaign_params) do
+          {
+            name: campaign_params[:name],
+            description: 'description 2',
+            dungeon_master: 'dungeon_master 2',
+            players: 2
+          }
+      end
+      let(:campaign) { Campaign.new(dup_campaign_params) }
+
+      before { Campaign.create!(campaign_params) }
+
+      it 'is not valid' do
+        expect(campaign).to_not be_valid
+      end
+
+      it 'is not case sensitive' do
+        campaign[:name] = campaign[:name].upcase
+
         expect(campaign).to_not be_valid
       end
     end

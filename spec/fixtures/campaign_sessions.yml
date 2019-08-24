@@ -1,0 +1,4 @@
+default_session:
+  name: 'new session'
+  description: 'Session description'
+  campaign: default_campaign
