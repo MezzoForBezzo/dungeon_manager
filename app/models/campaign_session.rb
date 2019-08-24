@@ -1,5 +1,5 @@
 class CampaignSession < ApplicationRecord
-  validates :name, :description
+  validates :name, :description, presence: true
 
   belongs_to :campaign
 end
