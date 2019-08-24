@@ -1,0 +1,17 @@
+ally_1:
+  name: 'Ally 1'
+  hit_points: 20
+  initiative: 15
+  campaign_session: campaign_session
+
+ally_2:
+  name: 'Ally 2'
+  hit_points: 20
+  initiative: 11
+  campaign_session: campaign_session
+
+ally_3:
+  name: 'Ally 3'
+  hit_points: 20
+  initiative: 5
+  campaign_session: campaign_session
