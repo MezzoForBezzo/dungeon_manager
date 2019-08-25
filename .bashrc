@@ -1,0 +1,5 @@
+alias dm="cd /mnt/c/dungeon_maker"
+alias gst="git status"
+alias gco="git checkout"
+alias gp="git push"
+alias rt="bundle exec rails --format documentation"

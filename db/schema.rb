@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_020118) do
+ActiveRecord::Schema.define(version: 2019_08_24_101654) do
 
   create_table "campaign_sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 2019_07_26_020118) do
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "session_allies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.integer "hit_points"
+    t.integer "initiative"
+    t.bigint "campaign_session_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["campaign_session_id"], name: "index_session_allies_on_campaign_session_id"
   end
 
 end
