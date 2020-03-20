@@ -1,0 +1,19 @@
+<div style="min-width:30rem; margin:15px; padding:10px;">
+  <table class="table">
+    <thead>
+        <tr class="d-flex">
+            <th class="col-3">Name</th>
+            <th class="col-6">Description</th>
+            <th class="col-2">Created</th>
+            <th class="col-1"></th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr class="d-flex">
+        <% @campaign_sessions&.each do |campaign_session| %>
+          <%= render partial: 'campaign_session', locals: {campaign_session: campaign_session} %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>

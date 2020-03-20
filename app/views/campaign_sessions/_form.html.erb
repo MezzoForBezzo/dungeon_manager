@@ -1,4 +1,5 @@
-<%= form_with model: @campaign_session, :html => {:class => "form-horizontal center"}, local: true  do |f| %>
+
+<%= form_with model: [@campaign, @campaign_session], :html => {:class => "form-horizontal center"}, local: true  do |f| %>
 
   <% if @campaign_session.errors.any? %>
     <div id="error_explanation">
@@ -26,6 +27,14 @@
       <%= f.text_area :description, class: "form-control" %>
     </div>
   </div>
+  <div class="form-group">
+    <%= f.label :notes, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_area :notes, class: "form-control" %>
+    </div>
+  </div>
+  <% f.hidden_field :campaign, :value => @campaign %>
+
 
   <div class="row" style="padding:15px;">
     <%= f.submit "Submit", class: "btn btn-default btn-primary"%>
