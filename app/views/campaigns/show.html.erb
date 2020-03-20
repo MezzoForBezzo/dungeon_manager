@@ -1,17 +1,55 @@
-<div class="card" style="max-width:75rem; max-height:75rem; margin:15px;">
-  <a href=""><img class="card-img-top" src=<%= @campaign.image_url %> alt="..."><a>
-  <div class="card-body">
-    <h2 class="card-title"><%= @campaign.name %></h2>
-    <h4 class="card-subtitle mb-2 text-muted">DM: <%= @campaign.dungeon_master %> Players: <%= @campaign.players %></h4>
-    <p class="card-text"><%= @campaign.description %></p>
+<div style="padding:15px;">
+  <div class="card" >
     <div class="row" style="padding:15px;">
-      <a href="<%= edit_campaign_path(@campaign)%>" class="btn btn-primary" style="margin:5px;">Edit</a>
-      <a href="<%= campaigns_path %>" class="btn btn-primary" style="margin:5px;">Back</a>
+      <div class="col-4">
+        <a href=""><img class="card-img-top" style="max-width:30rem; max-hieght:30rem;" src=<%= @campaign.image_url %> alt="..."><a>
+      </div>
+      <div class="col-7">
+        <div class="card-body">
+          <h2 class="card-title"><%= @campaign.name %></h2>
+          <h4 class="card-subtitle mb-2 text-muted">DM: <%= @campaign.dungeon_master %> Players: <%= @campaign.players %></h4>
+          <p class="card-text"><%= @campaign.description %></p>
+          <div class="row" style="padding:15px;">
+            <a href="<%= edit_campaign_path(@campaign)%>" class="btn btn-primary" style="margin:5px;">Edit</a>
+            <a class="btn" style="margin:5px;" href="<%= campaign_path(@campaign) %>" data-method="delete" data-confirm="Are you sure?" role="button"><svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+  <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+</svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-1 float-right"><a href="<%= campaigns_path %>" class="btn btn-primary" style="margin:5px;">Back</a></div>
     </div>
-    <%= link_to 'Destroy', campaign_path(@campaign),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %>
-  </div>
 
-  <%= link_to 'New Session', new_campaign_campaign_session_path(@campaign) %>
+    <div style="padding:15px;">
+      <div class="row" style="padding:15px;">
+        <div class="col-9">
+          <h1>Sessions</h1>
+        </div>
+        <div class="col-3">
+          <a class="btn btn-primary float-right" href="<%= new_campaign_campaign_session_path(@campaign) %>" role="button">New Session</a>
+        </div>
+      </div>
+      <div style="min-width:30rem; margin:15px; padding:10px;">
+        <table class="table">
+          <thead>
+              <tr class="d-flex">
+                  <th class="col-3">Name</th>
+                  <th class="col-6">Description</th>
+                  <th class="col-2">Created</th>
+                  <th class="col-1"></th>
+              </tr>
+          </thead>
+          <tbody>
+            <% @campaign.campaign_sessions.each do |campaign_session| %>
+              <tr class="d-flex">
+                <%= render partial: '/campaign_sessions/campaign_session', locals: { campaign_session: campaign_session } %>
+                <td><a href="<%= campaign_campaign_session_path(@campaign, campaign_session) %>"><button type="button" style="width: 100%;" class="btn btn-outline-secondary btn-lg">Show</button></a></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
