@@ -1,0 +1,43 @@
+
+<%= form_with model: [@campaign, @campaign_session], :html => {:class => "form-horizontal center"}, local: true  do |f| %>
+
+  <% if @campaign_session.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@campaign_session.errors.count, "error") %> prohibited
+        this campaign session from being saved:
+      </h2>
+      <ul>
+        <% @campaign_session.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :notes, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_area :notes, class: "form-control" %>
+    </div>
+  </div>
+  <% f.hidden_field :campaign, :value => @campaign %>
+
+
+  <div class="row" style="padding:15px;">
+    <%= f.submit "Submit", class: "btn btn-default btn-primary"%>
+    <a href="<%= campaign_path(@campaign) %>" class="btn btn-primary" style="margin-left:5px;">Back</a>
+  </div>
+ <% end %>
