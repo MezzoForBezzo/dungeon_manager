@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   resources :campaigns do
     resources :campaign_sessions
   end
+
+  resources :session_allies do
+  end
+
   root 'pages#home'
 end
