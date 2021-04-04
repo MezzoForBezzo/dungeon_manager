@@ -4,7 +4,7 @@
     object-fit: contain;"><a>
   <div class="card-body">
     <h5 class="card-title"><%= campaign.name %></h5>
-    <p class="card-text text-left"><%= campaign.description %></p>
+    <p class="card-text text-left"><%= truncate(campaign.description, length: 100) %></p>
     <p class="card-text text-left"><small class="text-muted">DM: <%= campaign.dungeon_master %></small></p>
   </div>
 </div>

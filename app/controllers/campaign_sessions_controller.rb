@@ -18,7 +18,7 @@ class CampaignSessionsController < ApplicationController
     @campaign_session = @campaign.campaign_sessions.build(campaign_session_params)
 
     if @campaign_session.save
-      redirect_to campaign_campaign_sessions_path(@campaign)
+      redirect_to campaign_path(@campaign)
     else
       render 'new'
     end
@@ -38,7 +38,7 @@ class CampaignSessionsController < ApplicationController
   def destroy
     @campaign_session.destroy
 
-    redirect_to campaign_campaign_session_path(@campaign)
+    redirect_to campaign_path(@campaign)
   end
 
   private
