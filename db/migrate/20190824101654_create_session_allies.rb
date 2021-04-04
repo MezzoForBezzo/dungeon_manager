@@ -4,7 +4,6 @@ class CreateSessionAllies < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :hit_points
       t.integer :initiative
-      t.references :campaign_session
 
       t.timestamps
     end
