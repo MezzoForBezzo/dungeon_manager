@@ -41,7 +41,7 @@
               </tr>
           </thead>
           <tbody>
-            <% @campaign.campaign_sessions.each do |campaign_session| %>
+            <% @campaign.campaign_sessions.order(created_at: :desc).each do |campaign_session| %>
               <tr class="d-flex">
                 <%= render partial: '/campaign_sessions/campaign_session', locals: { campaign_session: campaign_session } %>
                 <td><a href="<%= campaign_campaign_session_path(@campaign, campaign_session) %>"><button type="button" style="width: 100%;" class="btn btn-outline-secondary btn-lg">Show</button></a></td>
