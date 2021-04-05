@@ -1,0 +1,13 @@
+<div class="container-fluid padding">
+    <div class="row padding">
+        <div class="col-12">
+            <a href="<%= new_session_ally_path %>"><button type="button" style="width: 100%; margin-top:1rem;" class="btn btn-outline-secondary btn-lg">New Ally</button></a>
+        </div>
+    </div>
+
+    <div class="card-deck">
+        <% @session_allies.each do |ally| %>
+            <%= render partial: 'session_allies', locals: {ally: ally} %>
+        <% end %>
+    </div>
+</div>

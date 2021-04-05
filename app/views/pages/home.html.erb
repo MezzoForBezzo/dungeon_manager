@@ -24,9 +24,11 @@
     </div>
 
     <div class="row padding">
-      <% @session_allies.each do |ally| %>
-        <%= render partial: 'session_allies', locals: {ally: ally} %>
-      <% end %>
+      <div class="card-deck">
+        <% @session_allies.each do |ally| %>
+          <%= render partial: '/session_allies/session_allies', locals: {ally: ally} %>
+        <% end %>
+      </div>
     </div>
   </div>
 <!-- Jumbotron -->

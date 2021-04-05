@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_20_001902) do
+ActiveRecord::Schema.define(version: 2021_04_04_113550) do
 
   create_table "campaign_sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -36,10 +36,14 @@ ActiveRecord::Schema.define(version: 2020_03_20_001902) do
     t.string "name"
     t.integer "hit_points"
     t.integer "initiative"
-    t.bigint "campaign_session_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["campaign_session_id"], name: "index_session_allies_on_campaign_session_id"
+    t.text "backstory"
+    t.text "appearance"
+    t.integer "armour"
+    t.text "goals"
+    t.text "stats"
+    t.string "image_url"
   end
 
 end
